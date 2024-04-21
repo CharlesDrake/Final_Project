@@ -4,6 +4,7 @@ import './App.css';
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
 const supabase = createClient('https://kncpxougvldubgtuqpyn.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtuY3B4b3VndmxkdWJndHVxcHluIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTA3NzIwNzcsImV4cCI6MjAyNjM0ODA3N30.r7Z0q1iWbLbmbOdhKKPgvZsT4JXstUKILfk1h0TMzX4')
 
+
 function GetCharacters(){
 
   const [characters, setCharacters] = useState([]);
@@ -122,14 +123,6 @@ function Pasta() {
   )
 }
 
-document.querySelectorAll('a[href*="#"]').forEach(anchor =>{
-  anchor.addEventListener("click", function(e){
-    e.preventDefault();
-    document.querySelector(this.getAttribute("href")).scrollIntoView({
-      behavior : "smooth"
-    });
-  });
-});
 
 function App() {
   return (
@@ -139,10 +132,25 @@ function App() {
       </header>
       <nav class="min-[960px]:bg-white bg-[#8B008B] min-[960px]:text-[#8B008B] text-white flex flex-col items-center p-2.5 justify-between sticky top-0">
         <ul class="list-none m-0 p-0">
-          <li class="inline-block p-2.5"><a class="font-bold visited:text-black" href="#aboutme">About Me</a></li>
-          <li class="inline-block p-2.5"><a class="font-bold visited:text-black" href="#knowledge">Knowledge</a></li>
-          <li class="inline-block p-2.5"><a class="font-bold visited:text-black" href="#api">Api</a></li>
-          <li class="inline-block p-2.5"><a class="font-bold visited:text-black" href="https://github.com/CharlesDrake">Github</a></li>
+          <li class="inline-block p-2.5"><button><a class="font-bold "
+          onClick={() => {const element=document.getElementById('aboutme');
+          element?.scrollIntoView({
+            behavior : 'smooth'
+            })
+          }}>About Me</a></button></li>
+          <li class="inline-block p-2.5"><button><a class="font-bold"
+          onClick={() => {const element=document.getElementById('knowledge');
+          element?.scrollIntoView({
+            behavior : 'smooth'
+            })
+          }}>Knowledge</a></button></li>
+          <li class="inline-block p-2.5"><button><a class="font-bold "
+          onClick={() => {const element=document.getElementById('api');
+          element?.scrollIntoView({
+            behavior : 'smooth'
+            })
+          }}>Api</a></button></li>
+          <li class="inline-block p-2.5"><a class="font-bold" href="https://github.com/CharlesDrake">Github</a></li>
         </ul>
       </nav>
       <main class="mx-auto w-4/5">
